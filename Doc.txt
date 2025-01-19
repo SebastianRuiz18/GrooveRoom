@@ -1,0 +1,32 @@
+1. 
+    on cmd:
+        pip
+        pip install django djangorestframework
+        django-admin startproject [project name]
+        cd .\[project name]\
+            django-admin startapp [app name("api" in my case for API handling)]
+
+    in settings.py folder, under 'INSTALLED_APPS'
+        add '[name of the new app].apps' ('api.apps.ApiConfig' in my case)
+        add the 'rest_framework'
+    
+    in app views.py
+        "from django.http import HttpResponse" for http
+    in app and project named folder add a file named "urls.py"
+
+    inside project's urls.py add:
+        path('', include('api.urls'))
+        and add "inlcude" on "from django.urls import path, include"
+
+    inside app's urls.py add:
+        from django.urls import path
+        from .views import main
+
+        urlpatterns = [
+            path('', main)
+        ]
+
+    on cmd:
+        python .\manage.py makemigrations
+        python .\manage.py migrate
+        python .\manage.py runserver (ctrl + c to stop)
