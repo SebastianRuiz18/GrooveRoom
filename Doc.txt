@@ -30,3 +30,10 @@
         python .\manage.py makemigrations
         python .\manage.py migrate
         python .\manage.py runserver (ctrl + c to stop)
+
+2.  
+    to make a model:
+        models.py make a class (Room in this case) 
+
+    created a file named serializers.py
+        it will take our model that has code in python and translate it to JSON
